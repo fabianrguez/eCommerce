@@ -1,0 +1,16 @@
+<div class="card text-center">
+  <img class="card-img-top rounded" [src]="product.image" alt="{{product.name}}">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{product.name}}
+    </h5>
+    <p class="card-text">
+     <s>{{product.price + product.price * 0.6}} €</s> - {{product.price}} €
+    </p>
+    <div class="row justify-content-around">
+      <button class="btn btn-info" (click)="productDetails()">Ver producto</button>
+    </div>
+  </div>
+</div>
+
+
