@@ -2,6 +2,10 @@
   font-size: 26px;
 }
 
+.fa-shopping-bag {
+  font-size: 30px;
+}
+
 .navbar{
   border-bottom: 1px solid #f5f5f6;
 }
@@ -13,7 +17,7 @@
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(235, 235, 235, 0.7);
+    background-color: rgba(10, 155, 170, 0.6);
     z-index: 1000;
   }
   .navbar-collapse.collapsing {
@@ -30,6 +34,10 @@
     -o-transition: left 0.3s ease-in;
     -moz-transition: left 0.3s ease-in;
     transition: left 0.3s ease-in;
+  }
+
+  .nav-link {
+    color: white !important;
   }
 }
 
