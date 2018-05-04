@@ -7,6 +7,7 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {BrowserModule} from '@angular/platform-browser';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import {RouterModule} from '@angular/router';
+import {ProductShareService} from '../../services/shared/product-share.service';
 
 @NgModule({
   imports: [
@@ -23,7 +24,11 @@ import {RouterModule} from '@angular/router';
     ProductContainerComponent,
     OrderByFilterComponent,
     ProductListComponent,
-    ProductDetailsComponent]
+    ProductDetailsComponent
+  ],
+  providers: [
+    ProductShareService
+  ]
 })
 export class ProductsModule {
 }

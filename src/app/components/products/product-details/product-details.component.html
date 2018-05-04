@@ -1,3 +1,24 @@
-<div class="container-fluid mt-6">
-  <p>Producto {{productId}}</p>
+<div class="container mt-6">
+  <div class="card">
+    <div class="card-header">
+      <h4>Producto:  {{productId}}</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-thumbnail img-responsive rounded" [src]="product.image" alt="{{product.name}}">
+      </div>
+      <div class="col-md-6">
+        <div class="card-text">
+          <p class="text-muted">Nº de ventas: </p> {{product.sales}}
+          <p class="text-muted">Precio: </p> {{product.price}}€
+        </div>
+        <div class="row justify-content-around mt-3">
+          <button class="btn btn-info">Añadir al carrito <i class="fa fa-shopping-cart"></i></button>
+          <button class="btn btn-warning">Añadir a lista de deseos <i class="fa fa-heart-o"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
