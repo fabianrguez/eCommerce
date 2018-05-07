@@ -5,7 +5,7 @@ import {ProductContainerComponent} from './product-container/product-container.c
 import {OrderByFilterComponent} from './order-by-filter/order-by-filter.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {BrowserModule} from '@angular/platform-browser';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import {ProductDetailsComponent} from './product-details/product-details.component';
 import {RouterModule} from '@angular/router';
 import {ProductShareService} from '../../services/shared/product-share.service';
 
