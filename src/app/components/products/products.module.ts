@@ -8,11 +8,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {RouterModule} from '@angular/router';
 import {ProductShareService} from '../../services/shared/product-share.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     ProductContainerComponent,

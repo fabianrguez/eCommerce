@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-3">
+    <img class="card-img-top rounded" [src]="product.image" alt="{{product.name}}">
+  </div>
+  <div class="col-md-6">
+    <p>{{product.name}}</p>
+    <p>{{product.model}}</p>
+    <p><b style="color: red">{{product.price}}€</b></p>
+  </div>
+  <div class="col-md-3">
+    <a id="delete" (click)="handleProductDeleted()"><i class="fa fa-trash"></i></a>
+  </div>
+</div>

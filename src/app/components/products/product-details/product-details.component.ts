@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductShareService} from '../../../services/shared/product-share.service';
+import {CartService} from '../../../services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,14 +12,17 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   productId: number;
   product: any;
+  quantity: number;
 
   constructor(private route: ActivatedRoute,
-              private productShareService: ProductShareService) {
+              private productShareService: ProductShareService,
+              private cartService: CartService) {
   }
 
   ngOnInit() {
     this.route.parent.params.subscribe(param => this.productId = +param.id);
     this.getProductInfo();
+    this.quantity = 1;
   }
 
   ngOnDestroy() {
@@ -33,4 +37,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
+  addToCart() {
+    this.cartService.addProduct(this.product, this.quantity);
+  }
 }

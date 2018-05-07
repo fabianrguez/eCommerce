@@ -50,3 +50,8 @@ nav.scrolled {
   transition: background-color 800ms linear;
   border-bottom: rgba(10, 155, 170, 0.8) !important;
 }
+
+#cart:hover {
+  cursor: pointer;
+  color: #0069d9;
+}

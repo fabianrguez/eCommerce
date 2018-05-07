@@ -21,9 +21,9 @@
             <p class="text-muted">Nº de ventas: <b>{{product.sales}}</b></p>
           </div>
           <div class="row mt-3 justify-content-end">
-            <input type="number" id="quantity" class="form-control" min="1" value="1"/>
-            <button id="add-cart" class="btn btn-info">Añadir al carrito <i class="fa fa-shopping-cart"></i></button>
-            <button class="btn btn-warning">lista de deseos <i class="fa fa-heart-o"></i></button>
+            <input type="number" id="quantity" class="form-control" min="1" value="1" [(ngModel)]="quantity"/>
+            <button id="add-cart" class="btn btn-info" (click)="addToCart()">Añadir al carrito <i class="fa fa-shopping-cart"></i></button>
+            <button class="btn btn-warning">!Lo deseo! <i class="fa fa-heart-o"></i></button>
           </div>
         </div>
       </div>

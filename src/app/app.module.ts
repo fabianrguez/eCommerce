@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductsModule } from './components/products/products.module';
 import {AppRoutingModule} from './app-routing.module';
 import { ChangeColorOnScrollDirective } from './directives/change-color-on-scroll.directive';
+import {CartService} from './services/cart.service';
+import {CartModule} from './components/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { ChangeColorOnScrollDirective } from './directives/change-color-on-scrol
   imports: [
     BrowserModule,
     ProductsModule,
+    CartModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

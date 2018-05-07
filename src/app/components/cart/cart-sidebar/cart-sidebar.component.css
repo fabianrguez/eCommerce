@@ -1,0 +1,8 @@
+.fa-shopping-cart {
+  font-size: 26px;
+}
+
+#cart:hover {
+  cursor: pointer;
+  color: #0069d9;
+}
