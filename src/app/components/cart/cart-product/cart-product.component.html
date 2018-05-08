@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-3">
-    <img class="card-img-top rounded" [src]="product.image" alt="{{product.name}}">
+    <img class="card-img-top rounded" [src]="cartItem.product.image" alt="{{cartItem.product.name}}">
   </div>
   <div class="col-md-6">
-    <p>{{product.name}}</p>
-    <p>{{product.model}}</p>
-    <p><b style="color: red">{{product.price}}€</b></p>
+    <p>{{cartItem.product.name}}</p>
+    <p>{{cartItem.product.model}}</p>
+    <p><b class="text-danger">{{cartItem.product.price}}€</b> x{{cartItem.quantity}}</p>
   </div>
   <div class="col-md-3">
     <a id="delete" (click)="handleProductDeleted()"><i class="fa fa-trash"></i></a>

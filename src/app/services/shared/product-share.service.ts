@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
+import {Product} from '../../models/product';
 
 @Injectable()
 export class ProductShareService {
 
-  products: any[] = [];
-  productSelected: any;
+  products: Product[] = [];
+  productSelected: Product;
 
   constructor() {
     this.products.push({

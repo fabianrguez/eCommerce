@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProductShareService} from '../../../services/shared/product-share.service';
+import {Product} from '../../../models/product';
 
 @Component({
   selector: 'app-item',
@@ -9,7 +10,7 @@ import {ProductShareService} from '../../../services/shared/product-share.servic
 })
 export class ItemComponent implements OnInit {
 
-  @Input() product: any;
+  @Input() product: Product;
 
   constructor(private router: Router,
               private productShareService: ProductShareService) {

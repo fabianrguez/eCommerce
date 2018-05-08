@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductShareService} from '../../../services/shared/product-share.service';
 import {CartService} from '../../../services/cart.service';
+import {Product} from '../../../models/product';
+import {CartItem} from '../../../models/cartItem';
 
 @Component({
   selector: 'app-product-details',
@@ -12,7 +14,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   limit: number;
   productId: number;
-  product: any;
+  product: Product;
   quantity: number;
 
   constructor(private route: ActivatedRoute,
@@ -41,11 +43,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   addToCart() {
     this.checkQuantity();
-    this.cartService.addProduct(this.product, this.quantity);
+    this.cartService.addProduct(this.getCartItem(this.product, this.quantity));
   }
 
   _handleQuantityChange() {
-    this.checkQuantity()
+    this.checkQuantity();
   }
 
   private isQuantityGreaterThanLimit() {
@@ -56,5 +58,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     if (this.isQuantityGreaterThanLimit()) {
       this.quantity = this.limit;
     }
+  }
+
+  private getCartItem(product: Product, quantity: number): CartItem {
+    const cartItem: CartItem = {};
+    cartItem.product = product;
+    cartItem.quantity = quantity;
+    return cartItem;
   }
 }
