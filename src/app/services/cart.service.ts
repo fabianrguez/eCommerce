@@ -1,35 +1,43 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Product} from '../models/product';
 import {CartItem} from '../models/cartItem';
+import {Cart} from '../models/cart';
 
 @Injectable()
 export class CartService {
 
-  public cartItems: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
+  public cart: BehaviorSubject<Cart> = new BehaviorSubject<Cart>({});
+  private total: number;
 
   constructor() {
+    this.cart.value.items = new BehaviorSubject<CartItem[]>([]);
+    this.cart.value.total = 0;
+    this.total = 0;
   }
 
   addProduct(cartItem: CartItem) {
+    this.total += cartItem.quantity;
     if (!this.productExistOnCart(cartItem)) {
-      this.cartItems.next(this.cartItems.getValue().concat(cartItem));
+      this.cart.getValue().items.next(this.cart.getValue().items.getValue().concat(cartItem));
+      this.cart.value.total = this.total;
     } else {
       this.modifyCartProduct(cartItem);
     }
   }
 
-  deleteProduct(product: Product) {
-    this.cartItems.next(this.removeFromCart(this.cartItems.getValue(), product));
+  deleteProduct(cartItem: CartItem) {
+    this.total -= cartItem.quantity;
+    this.cart.value.total = this.total;
+    this.cart.getValue().items.next(this.removeFromCart(this.cart.getValue().items.getValue(), cartItem));
   }
 
-  getCartProducts(): Observable<CartItem[]> {
-    return this.cartItems.asObservable();
+  getCartProducts(): Observable<Cart> {
+    return this.cart.asObservable();
   }
 
-  private removeFromCart(array: CartItem[], element: Product) {
-    return array.filter(position => position.product !== element);
+  private removeFromCart(array: CartItem[], item: CartItem) {
+    return array.filter(cartItem => cartItem !== item);
   }
 
   private productExistOnCart(cartItem: CartItem) {
@@ -37,14 +45,14 @@ export class CartService {
   }
 
   private filterCartByProductId(id: number) {
-    return this.cartItems.getValue().filter(item => item.product.id === id);
+    return this.cart.getValue().items.getValue().filter(item => item.product.id === id);
   }
 
   private modifyCartProduct(cartItem: CartItem) {
     const _cartItem = this.filterCartByProductId(cartItem.product.id);
     _cartItem[0].quantity += cartItem.quantity;
-    this.deleteProduct(cartItem.product);
-    this.cartItems.next(_cartItem);
+    this.deleteProduct(cartItem);
+    this.cart.getValue().items.next(_cartItem);
   }
 
 }

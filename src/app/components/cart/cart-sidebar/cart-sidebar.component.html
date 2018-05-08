@@ -13,7 +13,7 @@
       </div>
     </div>
     <ng-template #cart_products>
-      <app-cart-product [cartItem]="product" *ngFor="let product of _cart" (productDelete)="_handleProductDelete($event)"></app-cart-product>
+      <app-cart-product [cartItem]="product" *ngFor="let product of _cartItems" (productDelete)="_handleProductDelete($event)"></app-cart-product>
       <app-cart-costs [subtotal]="subtotal" [transportCost]="transportCost" [totalCost]="totalCost"></app-cart-costs>
       <div class="row justify-content-center">
         <button class="btn btn-danger">Tramitar pedido <i class="fa fa-arrow-right"></i></button>
@@ -24,4 +24,4 @@
 <a id="cart" (click)="toggleSidebarCart()">
   <i class="fa fa-shopping-cart"></i>
 </a>
-<span class="badge badge-pill badge-warning" [hidden]="isCartEmpty()">{{_cart.length}}</span>
+<span class="badge badge-pill badge-warning" [hidden]="isCartEmpty()">{{_cart.total}}</span>
