@@ -17,10 +17,8 @@ export class CartService {
   }
 
   addProduct(cartItem: CartItem) {
-    this.total += cartItem.quantity;
     if (!this.productExistOnCart(cartItem)) {
-      this.cart.getValue().items.next(this.cart.getValue().items.getValue().concat(cartItem));
-      this.cart.value.total = this.total;
+      this.addNewProductToCart(cartItem);
     } else {
       this.modifyCartProduct(cartItem);
     }
@@ -48,10 +46,18 @@ export class CartService {
     return this.cart.getValue().items.getValue().filter(item => item.product.id === id);
   }
 
+  private addNewProductToCart(cartItem: CartItem) {
+    this.total += cartItem.quantity;
+    this.cart.value.total = this.total;
+    this.cart.getValue().items.next(this.cart.getValue().items.getValue().concat(cartItem));
+  }
+
   private modifyCartProduct(cartItem: CartItem) {
     const _cartItem = this.filterCartByProductId(cartItem.product.id);
     _cartItem[0].quantity += cartItem.quantity;
     this.deleteProduct(cartItem);
+    this.total = _cartItem[0].quantity;
+    this.cart.value.total = this.total;
     this.cart.getValue().items.next(_cartItem);
   }
 

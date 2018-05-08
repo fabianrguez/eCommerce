@@ -29,7 +29,6 @@ export class CartSidebarComponent implements OnInit {
     this.renderer.setStyle(this.cartSidebar.containerViewChild.nativeElement, 'overflow-y', 'auto');
     this.displayCartSidebar = false;
     this.cartService.getCartProducts().subscribe(cart => {
-      this._cart.total = 0;
       cart.items.subscribe(items => {
         this._cart = cart;
         this._cartItems = items;
