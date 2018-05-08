@@ -9,7 +9,7 @@ import {ChangeColorOnScrollDirective} from './directives/change-color-on-scroll.
 import {CartService} from './services/cart.service';
 import {CartModule} from './components/cart/cart.module';
 import {AngularFireModule} from 'angularfire2';
-import {config} from '../../config';
+import {config} from '../config';
 
 @NgModule({
   declarations: [
