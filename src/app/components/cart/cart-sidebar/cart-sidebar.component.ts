@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {CartService} from '../../../services/cart.service';
+import {Sidebar} from 'primeng/primeng';
 
 @Component({
   selector: 'app-cart-sidebar',
@@ -8,16 +9,20 @@ import {CartService} from '../../../services/cart.service';
 })
 export class CartSidebarComponent implements OnInit {
 
+  @ViewChild('cart') cartSidebar: Sidebar;
+
   displayCartSidebar: boolean;
   subtotal: number;
   transportCost: number;
   totalCost: number;
   products: any[] = [];
 
-  constructor(public cartService: CartService) {
+  constructor(public cartService: CartService,
+              private renderer: Renderer2) {
   }
 
   ngOnInit() {
+    this.renderer.setStyle(this.cartSidebar.containerViewChild.nativeElement, 'overflow-y', 'auto');
     this.displayCartSidebar = false;
     this.cartService.getCartProducts().subscribe(cart => {
       this.products = cart;
