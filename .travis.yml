@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   version:
-    - "9"
+    - "8.11.1"
 
 branches:
   only:
