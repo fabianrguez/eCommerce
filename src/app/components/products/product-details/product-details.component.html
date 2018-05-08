@@ -21,9 +21,14 @@
             <p class="text-muted">Nº de ventas: <b>{{product.sales}}</b></p>
           </div>
           <div class="row mt-3 justify-content-end">
-            <input type="number" id="quantity" class="form-control" min="1" value="1" [(ngModel)]="quantity"/>
-            <button id="add-cart" class="btn btn-info" (click)="addToCart()">Añadir al carrito <i class="fa fa-shopping-cart"></i></button>
-            <button class="btn btn-warning">!Lo deseo! <i class="fa fa-heart-o"></i></button>
+            <div class="form-group">
+              <input type="number" class="form-control" id="quantity" min="1" value="1" max="20"
+                     aria-describedby="quantityHelp" [(ngModel)]="quantity" (change)="_handleQuantityChange()">
+              <small id="quantityHelp" class="form-text text-muted">Máximo 20.</small>
+            </div>
+            <button id="add-cart" class="btn btn-info" (click)="addToCart()">Añadir al carrito <i
+              class="fa fa-shopping-cart"></i></button>
+            <button id="wish-list" class="btn btn-warning">!Lo deseo! <i class="fa fa-heart-o"></i></button>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import {CartService} from '../../../services/cart.service';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
 
+  limit: number;
   productId: number;
   product: any;
   quantity: number;
@@ -23,6 +24,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.route.parent.params.subscribe(param => this.productId = +param.id);
     this.getProductInfo();
     this.quantity = 1;
+    this.limit = 20;
   }
 
   ngOnDestroy() {
@@ -38,6 +40,21 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   addToCart() {
+    this.checkQuantity();
     this.cartService.addProduct(this.product, this.quantity);
+  }
+
+  _handleQuantityChange() {
+    this.checkQuantity()
+  }
+
+  private isQuantityGreaterThanLimit() {
+    return this.quantity > this.limit;
+  }
+
+  private checkQuantity() {
+    if (this.isQuantityGreaterThanLimit()) {
+      this.quantity = this.limit;
+    }
   }
 }

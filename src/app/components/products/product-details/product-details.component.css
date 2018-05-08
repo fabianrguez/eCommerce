@@ -7,12 +7,18 @@
 }
 
 .form-control {
+  text-align: center;
   width: 4rem;
   margin-right: 0.7rem;
 }
 
 #add-cart {
   margin-right: 0.7rem;
+  height: 3.5rem !important;
+}
+
+#wish-list{
+  height: 3.5rem !important;
 }
 
 #price {
@@ -21,7 +27,11 @@
 
 @media (max-width: 768px) {
   .form-control {
-    width: 2.5rem !important;
+    height: 3rem !important;
     margin-left: 0;
+  }
+
+  .form-text {
+    margin-right: 0.7rem !important;
   }
 }
