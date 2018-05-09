@@ -9,6 +9,8 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 import {RouterModule} from '@angular/router';
 import {ProductShareService} from '../../services/shared/product-share.service';
 import {FormsModule} from '@angular/forms';
+import {ProductCommentComponent} from './product-comment/product-comment.component';
+import {CommentsListComponent} from './comments-list/comments-list.component';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import {FormsModule} from '@angular/forms';
     ProductContainerComponent,
     OrderByFilterComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductCommentComponent,
+    CommentsListComponent
   ],
   providers: [
     ProductShareService

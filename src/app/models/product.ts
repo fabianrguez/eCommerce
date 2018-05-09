@@ -1,3 +1,5 @@
+import {Comment} from './comment';
+
 export interface Product {
   id?: number;
   name?: string;
@@ -6,4 +8,5 @@ export interface Product {
   sales?: number;
   image?: string;
   description?: string;
+  comments?: Comment[];
 }

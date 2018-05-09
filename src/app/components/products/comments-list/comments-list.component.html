@@ -1,0 +1,10 @@
+<div class="container" *ngIf="areCommentsEmpty(); else comments_list">
+  <div class="row" >
+    <h4>No hay comentarios</h4>
+  </div>
+</div>
+
+<ng-template #comments_list>
+  <app-product-comment [comment]="comment" *ngFor="let comment of comments"></app-product-comment>
+</ng-template>
+

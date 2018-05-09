@@ -15,7 +15,43 @@ export class ProductShareService {
       price: 12,
       sales: 4,
       image: 'http://eurohar.es/10370-tm_large_default/japan-racing-jr22-19x85-et40-5x112-hiper-black.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi, ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non, volutpat viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a. Nullam accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.'
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi,
+      ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non,volutpat
+      viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut
+      in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a.Nullam
+      accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.`,
+      comments: [
+        {
+          username: 'Paquito',
+          date: new Date(2018, 3, 29, 15, 27, 0, 0),
+          message: 'Gran producto, y tal cual.',
+          userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+        },
+        {
+          username: 'Eustaquio',
+          date: new Date(2018, 3, 30, 18, 44, 16, 0),
+          message: 'Se sale esto ehh!',
+          userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+        },
+        {
+          username: 'Juanito',
+          date: new Date(2018, 4, 8, 18, 44, 16, 0),
+          message: 'Esta bomba tal!',
+          userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+        },
+        {
+          username: 'Jose Antonio',
+          date: new Date(2018, 4, 9, 12, 34, 16, 0),
+          message: 'Esta bomba tal!',
+          userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+        },
+        {
+          username: 'josefino',
+          date: new Date(2018, 4, 9, 13, 53, 2, 0),
+          message: 'Esta bomba tal!',
+          userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
+        }
+      ]
     });
     this.products.push({
       id: 2,
@@ -24,7 +60,12 @@ export class ProductShareService {
       price: 52,
       sales: 1,
       image: 'http://eurohar.es/10370-tm_large_default/japan-racing-jr22-19x85-et40-5x112-hiper-black.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi, ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non, volutpat viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a. Nullam accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.'
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi,
+      ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non,volutpat
+      viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut
+      in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a.Nullam
+      accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.`,
+      comments: []
     });
     this.products.push({
       id: 3,
@@ -33,7 +74,12 @@ export class ProductShareService {
       price: 2,
       sales: 45,
       image: 'http://eurohar.es/10370-tm_large_default/japan-racing-jr22-19x85-et40-5x112-hiper-black.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi, ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non, volutpat viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a. Nullam accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.'
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi,
+      ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non,volutpat
+      viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut
+      in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a.Nullam
+      accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.`,
+      comments: []
     });
     this.products.push({
       id: 4,
@@ -42,7 +88,12 @@ export class ProductShareService {
       price: 5,
       sales: 15,
       image: 'http://eurohar.es/10370-tm_large_default/japan-racing-jr22-19x85-et40-5x112-hiper-black.jpg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi, ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non, volutpat viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a. Nullam accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.'
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium ante nisi,
+      ac laoreet risus consequat sed. Ut ornare et dolor nec tempor. Aenean diam diam, commodo in lorem non,volutpat
+      viverra ex. Praesent accumsan turpis sed varius pellentesque. Maecenas dictum libero ut velit cursus rutrum. Ut
+      in orci nec massa euismod lobortis vel quis diam. In hendrerit tellus mi, sed varius orci venenatis a.Nullam
+      accumsan mollis risus. Aliquam erat volutpat. In porta viverra nibh, vitae eleifend augue.`,
+      comments: []
     });
   }
 

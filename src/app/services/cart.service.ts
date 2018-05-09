@@ -27,7 +27,7 @@ export class CartService {
   deleteProduct(cartItem: CartItem) {
     this.total -= cartItem.quantity;
     this.cart.value.total = this.total;
-    this.cart.getValue().items.next(this.removeFromCart(this.cart.getValue().items.getValue(), cartItem));
+    this.cart.value.items.next(this.removeFromCart(this.cart.value.items.value, cartItem));
   }
 
   getCartProducts(): Observable<Cart> {
@@ -35,15 +35,15 @@ export class CartService {
   }
 
   private removeFromCart(array: CartItem[], item: CartItem) {
-    return array.filter(cartItem => cartItem !== item);
+    return array.filter(cartItem => cartItem.product !== item.product);
   }
 
   private productExistOnCart(cartItem: CartItem) {
-    return this.filterCartByProductId(cartItem.product.id).length !== 0;
+    return this.filterCartByProductId(cartItem.product.id) != null;
   }
 
   private filterCartByProductId(id: number) {
-    return this.cart.getValue().items.getValue().filter(item => item.product.id === id);
+    return this.cart.value.items.value.find(item => item.product.id === id);
   }
 
   private addNewProductToCart(cartItem: CartItem) {
@@ -53,12 +53,14 @@ export class CartService {
   }
 
   private modifyCartProduct(cartItem: CartItem) {
+    let totalQuantity = 0;
     const _cartItem = this.filterCartByProductId(cartItem.product.id);
-    _cartItem[0].quantity += cartItem.quantity;
+    _cartItem.quantity += cartItem.quantity;
     this.deleteProduct(cartItem);
-    this.total = _cartItem[0].quantity;
+    this.cart.getValue().items.next(this.cart.getValue().items.getValue().concat(_cartItem));
+    this.cart.value.items.value.forEach(item => totalQuantity += item.quantity);
+    this.total = totalQuantity;
     this.cart.value.total = this.total;
-    this.cart.getValue().items.next(_cartItem);
   }
 
 }
