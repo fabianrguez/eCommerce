@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Product} from '../../models/product';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import Timestamp = firebase.firestore.Timestamp;
+import * as firebase from 'firebase';
 
 @Injectable()
 export class ProductShareService {
