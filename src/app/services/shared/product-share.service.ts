@@ -1,13 +1,21 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../../models/product';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import Timestamp = firebase.firestore.Timestamp;
 
 @Injectable()
 export class ProductShareService {
 
   products: Product[] = [];
   productSelected: Product;
+  timestampt = new Timestamp(123456789, 0);
 
-  constructor() {
+  private productsCollection: AngularFirestoreCollection<Product>;
+
+  constructor(private db: AngularFirestore) {
+    const settings = {timestampsInSnapshots: true};
+    this.db.firestore.settings(settings);
+    this.initializeProductCollection();
     this.products.push({
       id: 1,
       name: 'Producto 1',
@@ -23,31 +31,31 @@ export class ProductShareService {
       comments: [
         {
           username: 'Paquito',
-          date: new Date(2018, 3, 29, 15, 27, 0, 0),
+          date: this.timestampt,
           message: 'Gran producto, y tal cual.',
           userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
         },
         {
           username: 'Eustaquio',
-          date: new Date(2018, 3, 30, 18, 44, 16, 0),
+          date: this.timestampt,
           message: 'Se sale esto ehh!',
           userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
         },
         {
           username: 'Juanito',
-          date: new Date(2018, 4, 8, 18, 44, 16, 0),
+          date: this.timestampt,
           message: 'Esta bomba tal!',
           userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
         },
         {
           username: 'Jose Antonio',
-          date: new Date(2018, 4, 9, 12, 34, 16, 0),
+          date: this.timestampt,
           message: 'Esta bomba tal!',
           userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
         },
         {
           username: 'josefino',
-          date: new Date(2018, 4, 9, 13, 53, 2, 0),
+          date: this.timestampt,
           message: 'Esta bomba tal!',
           userPhoto: 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png'
         }
@@ -101,8 +109,24 @@ export class ProductShareService {
     return this.products;
   }
 
+  public getProductsFromDB() {
+    return this.productsCollection.valueChanges();
+  }
+
+  public save(product) {
+    this.productsCollection.add(product);
+  }
+
+  public getProductByIdFromDB(id: number) {
+    return this.db.collection('productos', ref => ref.where('id', '==', id)).valueChanges();
+  }
+
   public getProductById(id: number) {
     return this.products.find(element => element.id === id);
+  }
+
+  private initializeProductCollection() {
+    this.productsCollection = this.db.collection('productos');
   }
 
 }

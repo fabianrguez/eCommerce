@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Comment} from '../../../models/comment';
 
 @Component({
@@ -6,9 +6,9 @@ import {Comment} from '../../../models/comment';
   templateUrl: './comments-list.component.html',
   styleUrls: ['./comments-list.component.css']
 })
-export class CommentsListComponent implements OnInit {
+export class CommentsListComponent implements OnInit, OnChanges {
 
-  @Input() comments: Comment[];
+  @Input() comments: Comment[] = [];
 
   constructor() { }
 
@@ -16,7 +16,17 @@ export class CommentsListComponent implements OnInit {
   }
 
   areCommentsEmpty(): boolean {
-    return this.comments.length === 0;
+    if (this.areCommentsLoaded()) {
+      return this.comments.length === 0;
+    }
+    return true;
+  }
+
+  areCommentsLoaded(): boolean {
+    return this.comments != null;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
 }

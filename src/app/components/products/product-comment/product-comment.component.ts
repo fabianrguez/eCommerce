@@ -14,12 +14,12 @@ export class ProductCommentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.timeElapsedFromComment();
   }
 
   timeElapsedFromComment() {
     const dateNow = new Date();
-    const timeElapsed = dateNow.getTime() - this.comment.date.getTime();
+    const commentDate = new Date(this.comment.date.toDate());
+    const timeElapsed = dateNow.getTime() - commentDate.getTime();
     const days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
     if (days === 0) {
       const hours = Math.floor(timeElapsed / 3600000 );

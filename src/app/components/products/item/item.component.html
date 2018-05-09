@@ -2,7 +2,7 @@
   <img class="card-img-top rounded" [src]="product.image" alt="{{product.name}}">
   <div class="card-body">
     <h5 class="card-title">
-      {{product.name}}
+      {{product?.name}} | <b class="text-muted">{{product?.model}}</b>
     </h5>
     <p class="card-text">
      <s>{{product.price + product.price * 0.6}} €</s> - {{product.price}} €

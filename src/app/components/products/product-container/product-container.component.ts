@@ -15,7 +15,7 @@ export class ProductContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.products = this.productSharedService.getProducts();
+    // this.products = this.productSharedService.getProducts();
+    this.productSharedService.getProductsFromDB().subscribe(products => this.products = products);
   }
-
 }

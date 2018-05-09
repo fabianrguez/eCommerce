@@ -1,4 +1,4 @@
-<div class="container" *ngIf="areCommentsEmpty(); else comments_list">
+<div class="container" *ngIf="areCommentsEmpty() && areCommentsLoaded(); else comments_list">
   <div class="row" >
     <h4>No hay comentarios</h4>
   </div>

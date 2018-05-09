@@ -10,6 +10,7 @@ import {CartService} from './services/cart.service';
 import {CartModule} from './components/cart/cart.module';
 import {AngularFireModule} from 'angularfire2';
 import {config} from '../config';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {config} from '../config';
     ProductsModule,
     CartModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(config.firebaseConfig)
+    AngularFireModule.initializeApp(config.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     CartService
