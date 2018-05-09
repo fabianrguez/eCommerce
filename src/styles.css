@@ -1,3 +1,7 @@
 .mt-6 {
   margin-top: 4rem !important;
 }
+
+button, a {
+  touch-action: manipulation;
+}
