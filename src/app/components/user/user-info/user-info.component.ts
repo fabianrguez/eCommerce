@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../../services/auth.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -8,15 +7,10 @@ import {AuthService} from '../../../services/auth.service';
 })
 export class UserInfoComponent implements OnInit {
 
-  isLoggedIn: boolean;
-
-  constructor(private authService: AuthService) { }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.authService.isLoggedIn().subscribe(logged => {
-      this.isLoggedIn = logged;
-      console.log(this.isLoggedIn);
-    });
   }
 
 }
