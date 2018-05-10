@@ -1,0 +1,3 @@
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <a *ngFor="let option of getOptions()" class="dropdown-item" [routerLink]="option.redirectTo">{{option.label}}</a>
+</div>

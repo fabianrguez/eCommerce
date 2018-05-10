@@ -11,6 +11,9 @@ import {CartModule} from './components/cart/cart.module';
 import {AngularFireModule} from 'angularfire2';
 import {config} from '../config';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {UserModule} from './components/user/user.module';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,14 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     ProductsModule,
     CartModule,
     AppRoutingModule,
+    UserModule,
     AngularFireModule.initializeApp(config.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
-    CartService
+    CartService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
