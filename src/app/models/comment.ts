@@ -1,8 +1,8 @@
-import Timestamp = firebase.firestore.Timestamp;
+import * as firebase from 'firebase';
 
 export interface Comment {
   username?: string;
-  date?: Timestamp;
+  date?: firebase.firestore.Timestamp;
   message?: string;
   userPhoto?: string;
 }
