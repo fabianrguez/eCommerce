@@ -38,7 +38,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     if (this.product == null) {
       this.productShareService.getProductById(this.productId).subscribe(product => {
         this.product = <Product> product[0];
-        this.product.comments = [...this.product.comments.reverse()];
         this.productShareService.productSelected = this.product;
       });
     }
