@@ -7,10 +7,11 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {RouterModule} from '@angular/router';
-import {ProductShareService} from '../../services/shared/product-share.service';
+import {ProductShareService} from '../../services/product-share.service';
 import {FormsModule} from '@angular/forms';
 import {ProductCommentComponent} from './product-comment/product-comment.component';
 import {CommentsListComponent} from './comments-list/comments-list.component';
+import { CommentAddComponent } from './comment-add/comment-add.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {CommentsListComponent} from './comments-list/comments-list.component';
     ProductListComponent,
     ProductDetailsComponent,
     ProductCommentComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    CommentAddComponent
   ],
   providers: [
     ProductShareService

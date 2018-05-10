@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="comment-wrapper">
+    <div class="row">
+      <textarea class="form-control" placeholder="Añadir comentario..." cols="60" rows="5" [(ngModel)]="message"></textarea>
+    </div>
+    <div class="row mt-3 mb-4">
+      <button class="btn btn-block btn-outline-primary" (click)="_addComment()" [disabled]="isCommentEmpty()">Añadir</button>
+    </div>
+  </div>
+</div>

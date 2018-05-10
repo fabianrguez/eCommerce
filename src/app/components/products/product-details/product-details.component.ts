@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ProductShareService} from '../../../services/shared/product-share.service';
+import {ProductShareService} from '../../../services/product-share.service';
 import {CartService} from '../../../services/cart.service';
 import {Product} from '../../../models/product';
 import {CartItem} from '../../../models/cartItem';
@@ -13,7 +13,7 @@ import {CartItem} from '../../../models/cartItem';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   limit: number;
-  productId: number;
+  productId: string;
   product: Product;
   quantity: number;
 
@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe(param => this.productId = +param.id);
+    this.route.parent.params.subscribe(param => this.productId = param.id);
     this.getProductInfo();
     this.quantity = 1;
     this.limit = 20;
@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   private getProductInfo() {
     this.product = this.productShareService.productSelected;
     if (this.product == null) {
-      this.productShareService.getProductByIdFromDB(this.productId).subscribe(product => {
+      this.productShareService.getProductById(this.productId).subscribe(product => {
         this.product = <Product> product[0];
         this.productShareService.productSelected = this.product;
       });

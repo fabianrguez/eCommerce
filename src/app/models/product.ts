@@ -1,7 +1,7 @@
 import {Comment} from './comment';
 
 export interface Product {
-  id?: number;
+  id?: string;
   name?: string;
   model?: string;
   price?: number;

@@ -1,6 +1,9 @@
-<div class="container" *ngIf="areCommentsEmpty() && areCommentsLoaded(); else comments_list">
-  <div class="row" >
-    <h4>No hay comentarios</h4>
+<div *ngIf="areCommentsLoaded()">
+  <app-comment-add (commentAdded)="_handleCommentAdded($event)"></app-comment-add>
+  <div class="container" *ngIf="areCommentsEmpty(); else comments_list">
+    <div class="row justify-content-center" >
+      <h4>No hay comentarios</h4>
+    </div>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Comment} from '../../../models/comment';
+import {ProductShareService} from '../../../services/product-share.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -10,7 +11,7 @@ export class CommentsListComponent implements OnInit, OnChanges {
 
   @Input() comments: Comment[] = [];
 
-  constructor() { }
+  constructor(private productShareService: ProductShareService) { }
 
   ngOnInit() {
   }
@@ -29,4 +30,9 @@ export class CommentsListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
   }
 
+  _handleCommentAdded(comment: Comment) {
+    const productSelected = this.productShareService.productSelected;
+    productSelected.comments.push(comment);
+    this.productShareService.update(productSelected);
+  }
 }

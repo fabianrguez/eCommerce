@@ -42,7 +42,7 @@ export class CartService {
     return this.filterCartByProductId(cartItem.product.id) != null;
   }
 
-  private filterCartByProductId(id: number) {
+  private filterCartByProductId(id: string) {
     return this.cart.value.items.value.find(item => item.product.id === id);
   }
 
