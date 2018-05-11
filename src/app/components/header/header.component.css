@@ -17,8 +17,10 @@
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(10, 155, 170, 0.6);
+    /*background-color: rgba(10, 155, 170, 0.6);*/
+    background-color: white;
     z-index: 1000;
+    bottom: -60em
   }
   .navbar-collapse.collapsing {
     height: auto;
@@ -35,9 +37,19 @@
     -moz-transition: left 0.3s ease-in;
     transition: left 0.3s ease-in;
   }
+  .navbar-nav {
+    height: 100%;
+  }
 
-  .nav-link {
-    color: white !important;
+  .sign-in {
+    color: #6c757d !important;
+    font-weight: bolder;
+    order: 0;
+  }
+
+  .nav-item:not(.sign-in) {
+    background-color: lightgray;
+    border-bottom: 3px dotted rgba(0,0,0,0.1);
   }
 }
 
@@ -54,4 +66,44 @@ nav.scrolled {
 #cart:hover {
   cursor: pointer;
   color: #0069d9;
+}
+
+.icon-bar {
+  width: 22px;
+  height: 2px;
+  background-color: black;
+  display: block;
+  transition: ease 0.8s;
+  margin-top: 4px
+}
+
+.rotate-top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.rotate-middle-bar {
+  opacity: 0;
+}
+
+.rotate-bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+.sign-in {
+  color: #6c757d !important;
+  font-weight: bolder;
 }
