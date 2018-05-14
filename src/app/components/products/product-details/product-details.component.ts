@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ProductShareService} from '../../../services/product-share.service';
+import {FirestoreService} from '../../../services/firestore.service';
 import {CartService} from '../../../services/cart.service';
 import {Product} from '../../../models/product';
 import {CartItem} from '../../../models/cartItem';
@@ -18,7 +18,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   quantity: number;
 
   constructor(private route: ActivatedRoute,
-              private productShareService: ProductShareService,
+              private productShareService: FirestoreService,
               private cartService: CartService) {
   }
 

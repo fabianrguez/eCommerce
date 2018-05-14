@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
 import {Location} from '@angular/common';
+import {UserService} from '../../../services/user.service';
+import {FirestoreService} from '../../../services/firestore.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
   failMessage: string;
 
   constructor(private authService: AuthService,
-              private location: Location) {
+              private location: Location,
+              private productService: FirestoreService) {
   }
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   _handleLoginSuccess(response: any) {
+    this.productService.findUserByEmail(response.email).subscribe(user => console.log(user));
     this.location.back();
     this.username = '';
     this.password = '';

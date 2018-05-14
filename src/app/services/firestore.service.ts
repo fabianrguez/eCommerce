@@ -3,9 +3,10 @@ import {Product} from '../models/product';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
 @Injectable()
-export class ProductShareService {
+export class FirestoreService {
 
   private readonly PRODUCTS_COLLECTION = 'products';
+  private readonly USERS_COLLECTION = 'users';
 
   productSelected: Product;
   private productsCollection: AngularFirestoreCollection<Product>;
@@ -37,5 +38,10 @@ export class ProductShareService {
   private initializeProductCollection() {
     this.productsCollection = this.db.collection(this.PRODUCTS_COLLECTION);
   }
+
+  public findUserByEmail(email: string) {
+    return this.db.collection(this.USERS_COLLECTION, ref => ref.where('email', '==', email)).valueChanges();
+  }
+
 
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductShareService} from '../../../services/product-share.service';
+import {FirestoreService} from '../../../services/firestore.service';
 import {Product} from '../../../models/product';
 
 @Component({
@@ -11,7 +11,7 @@ export class ProductContainerComponent implements OnInit {
 
   products: Product[] = [];
 
-  constructor(private productSharedService: ProductShareService) {
+  constructor(private productSharedService: FirestoreService) {
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Comment} from '../../../models/comment';
-import {ProductShareService} from '../../../services/product-share.service';
+import {FirestoreService} from '../../../services/firestore.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -11,7 +11,7 @@ export class CommentsListComponent implements OnInit, OnChanges {
 
   @Input() comments: Comment[] = [];
 
-  constructor(private productShareService: ProductShareService) { }
+  constructor(private productShareService: FirestoreService) { }
 
   ngOnInit() {
   }

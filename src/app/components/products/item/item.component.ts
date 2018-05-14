@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ProductShareService} from '../../../services/product-share.service';
+import {FirestoreService} from '../../../services/firestore.service';
 import {Product} from '../../../models/product';
 
 @Component({
@@ -13,7 +13,7 @@ export class ItemComponent implements OnInit {
   @Input() product: Product;
 
   constructor(private router: Router,
-              private productShareService: ProductShareService) {
+              private productShareService: FirestoreService) {
   }
 
   ngOnInit() {

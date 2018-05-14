@@ -12,12 +12,12 @@
 
 @media (max-width: 768px) {
   .navbar-collapse {
+    padding-top: 1em;
     position: absolute;
     top: 54px;
     left: 0;
     width: 100%;
     text-align: center;
-    /*background-color: rgba(10, 155, 170, 0.6);*/
     background-color: white;
     z-index: 1000;
     bottom: -60em
