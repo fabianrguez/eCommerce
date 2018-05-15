@@ -4,7 +4,7 @@
       {{currentUser?.name}} {{currentUser?.lastName}}
     </div>
     <div class="card-body">
-      <form>
+      <form [formGroup]="userForm" class="needs-validation">
         <div class="row">
           <div class="col-lg-2 col-xs-12">
             <img class="img-thumbnail img-responsive" [src]="currentUser?.image">
@@ -14,19 +14,28 @@
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="name" class="col-form-label">Nombre: </label>
-                  <input id="name" class="form-control" placeholder="Nombre" [value]="currentUser?.name">
+                  <input #name id="name" class="form-control" placeholder="Nombre" [value]="currentUser?.name" formControlName="name" required>
+                  <div class="invalid-feedback" *ngIf="isNameInvalid()">
+                    El nombre es requerido.
+                  </div>
                 </div>
               </div>
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
-                  <label for="surname" class="col-form-label">Apellidos: </label>
-                  <input id="surname" class="form-control" placeholder="Apellidos" [value]="currentUser?.lastName">
+                  <label for="lastName" class="col-form-label">Apellidos: </label>
+                  <input #lastName id="lastName" class="form-control" placeholder="Apellidos" [value]="currentUser?.lastName" formControlName="lastName" required>
+                  <div class="invalid-feedback" *ngIf="isLastnameInvalid()">
+                    Los apellidos son requeridos.
+                  </div>
                 </div>
               </div>
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="email" class="col-form-label">Correo electrónico: </label>
-                  <input id="email" class="form-control" type="email" placeholder="Email" [value]="currentUser?.email">
+                  <input #email id="email" class="form-control" type="email" placeholder="Email" [value]="currentUser?.email" formControlName="email" required>
+                  <div class="invalid-feedback" *ngIf="isEmailInvalid()">
+                    El email no válido.
+                  </div>
                 </div>
               </div>
             </div>
@@ -35,13 +44,19 @@
               <div class="col-lg-6 col-xs-12">
                 <div class="form-group">
                   <label for="address" class="col-form-label">Dirección: </label>
-                  <input id="address" class="form-control" placeholder="Dirección" [value]="currentUser?.address">
+                  <input #address id="address" class="form-control" placeholder="Dirección" [value]="currentUser?.address" formControlName="address" required>
+                  <div class="invalid-feedback" *ngIf="isAddressInvalid()">
+                    La dirección es requerida.
+                  </div>
                 </div>
               </div>
               <div class="col-lg-6 col-xs-12">
                 <div class="form-group">
                   <label for="location" class="col-form-label">Localidad: </label>
-                  <input id="location" class="form-control" placeholder="Localidad" [value]="currentUser?.location">
+                  <input #location id="location" class="form-control" placeholder="Localidad" [value]="currentUser?.location" formControlName="location" required>
+                  <div class="invalid-feedback" *ngIf="isLocationInvalid()">
+                    La localidad es requerida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -49,7 +64,10 @@
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="cp" class="col-form-label">Código postal: </label>
-                  <input id="cp" class="form-control" placeholder="Código postal" [value]="currentUser?.postalCode">
+                  <input #postalCode id="cp" class="form-control" placeholder="Código postal" [value]="currentUser?.postalCode" formControlName="postalCode" required>
+                  <div class="invalid-feedback" *ngIf="isPostalCodeInvalid()">
+                    El código postal es requerido.
+                  </div>
                 </div>
               </div>
             </div>
