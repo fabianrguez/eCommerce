@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UserInfoComponent} from './user-info/user-info.component';
-import {UserOptionsComponent} from './user-options/user-options.component';
 import {RouterModule} from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 import {FormsModule} from '@angular/forms';
+import { AccountComponent } from './account/account.component';
+import { InformationComponent } from './information/information.component';
 
 @NgModule({
   imports: [
@@ -13,13 +13,14 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   declarations: [
-    UserInfoComponent,
-    UserOptionsComponent,
-    LoginComponent
+    LoginComponent,
+    AccountComponent,
+    InformationComponent
   ],
   exports: [
-    UserInfoComponent,
-    LoginComponent
+    LoginComponent,
+    AccountComponent,
+    InformationComponent
   ]
 })
 export class UserModule {

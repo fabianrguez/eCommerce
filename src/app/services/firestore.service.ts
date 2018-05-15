@@ -43,5 +43,4 @@ export class FirestoreService {
     return this.db.collection(this.USERS_COLLECTION, ref => ref.where('email', '==', email)).valueChanges();
   }
 
-
 }

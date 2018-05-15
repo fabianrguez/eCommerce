@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProductContainerComponent} from './components/products/product-container/product-container.component';
 import {ProductDetailsComponent} from './components/products/product-details/product-details.component';
 import {LoginComponent} from './components/user/login/login.component';
+import {InformationComponent} from './components/user/information/information.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,13 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'usuario/:id',
+    children: [
+      {path: 'informacion', component: InformationComponent},
+      {path: '', redirectTo: 'informacion', pathMatch: 'full'}
+    ]
   },
   {
     path: '',

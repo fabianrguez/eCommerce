@@ -20,8 +20,14 @@
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link" routerLink="/productos" routerLinkActive>Contacto</a>
         </li>
-        <li class="nav-item sign-in" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <li class="nav-item sign-in" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!isLogged()">
           <a class="nav-link" routerLink="/login" routerLinkActive>Únete o inicia sesión</a>
+        </li>
+        <li class="nav-item dropdown" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="isLogged()">
+          <app-account></app-account>
+        </li>
+        <li class="nav-item sign-out d-lg-none d-xl-none align-self-center" *ngIf="isLogged()"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="btn-link" (click)="logout()">Cerrar sesión</a>
         </li>
       </ul>
     </div>

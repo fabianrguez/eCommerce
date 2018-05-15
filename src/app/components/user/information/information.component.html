@@ -1,0 +1,87 @@
+<div class="container mt-7 mb-4" *ngIf="logged">
+  <div class="card">
+    <div class="card-header text-uppercase font-weight-bold">
+      {{currentUser?.name}} {{currentUser?.lastName}}
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-lg-2 col-xs-12">
+            <img class="img-thumbnail img-responsive" [src]="currentUser?.image">
+          </div>
+          <div class="col-lg-10 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="name" class="col-form-label">Nombre: </label>
+                  <input id="name" class="form-control" placeholder="Nombre" [value]="currentUser?.name">
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="surname" class="col-form-label">Apellidos: </label>
+                  <input id="surname" class="form-control" placeholder="Apellidos" [value]="currentUser?.lastName">
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Correo electrónico: </label>
+                  <input id="email" class="form-control" type="email" placeholder="Email" [value]="currentUser?.email">
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-lg-6 col-xs-12">
+                <div class="form-group">
+                  <label for="address" class="col-form-label">Dirección: </label>
+                  <input id="address" class="form-control" placeholder="Dirección" [value]="currentUser?.address">
+                </div>
+              </div>
+              <div class="col-lg-6 col-xs-12">
+                <div class="form-group">
+                  <label for="location" class="col-form-label">Localidad: </label>
+                  <input id="location" class="form-control" placeholder="Localidad" [value]="currentUser?.location">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="cp" class="col-form-label">Código postal: </label>
+                  <input id="cp" class="form-control" placeholder="Código postal" [value]="currentUser?.postalCode">
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="credit-card" class="col-form-label">Tarjeta bancaria:</label>
+                  <input id="credit-card" type="text" class="form-control" placeholder="Tarjeta bancaria"
+                         [value]="currentUser?.cardNumber">
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="cvv" class="col-form-label">CVV:</label>
+                  <input id="cvv" type="text" class="form-control" placeholder="CVV" [value]="currentUser?.cvv">
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="expiry-date" class="col-form-label">Fecha de caducidad:</label>
+                  <input id="expiry-date" type="text" class="form-control" placeholder="Fecha de caducidad"
+                         [value]="currentUser?.expiryDate">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</div>
