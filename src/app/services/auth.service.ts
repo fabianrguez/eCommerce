@@ -15,6 +15,7 @@ export class AuthService {
   public currentUser: Observable<User> = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
   constructor(private auth: AngularFireAuth) {
+    this.initCurrentUserFromStorage();
   }
 
   public async logIn(username: string, password: string) {

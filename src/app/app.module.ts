@@ -14,7 +14,6 @@ import {UserModule} from './components/user/user.module';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AuthService} from './services/auth.service';
 import { CollapseMenuDirective } from './directives/collapse-menu.directive';
-import {AuthInitializer} from './auth-initializer';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import {AuthInitializer} from './auth-initializer';
   ],
   providers: [
     CartService,
-    AuthService,
-    AuthInitializer
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
