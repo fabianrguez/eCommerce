@@ -26,9 +26,6 @@
         <li class="nav-item dropdown" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="isLogged()">
           <app-account></app-account>
         </li>
-        <li class="nav-item sign-out d-lg-none d-xl-none align-self-center" *ngIf="isLogged()"  data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="btn-link" (click)="logout()">Cerrar sesión</a>
-        </li>
       </ul>
     </div>
     <ul class="nav">

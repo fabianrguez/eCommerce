@@ -22,8 +22,8 @@ export class AccountComponent implements OnInit {
   }
 
   async logOut() {
+    await this.router.navigate(['/productos']);
     await this.authService.logOut();
-    this.router.navigate(['/productos']);
   }
 
   private initializeOptions() {

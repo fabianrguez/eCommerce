@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../models/product';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {User} from '../models/user';
 
 @Injectable()
 export class FirestoreService {
@@ -27,7 +28,7 @@ export class FirestoreService {
     this.productsCollection.doc(id).set(product);
   }
 
-  public update(product: Product) {
+  public updateProduct(product: Product) {
     this.db.collection(this.PRODUCTS_COLLECTION).doc(product.id).update(product);
   }
 
@@ -41,6 +42,11 @@ export class FirestoreService {
 
   public findUserByEmail(email: string) {
     return this.db.collection(this.USERS_COLLECTION, ref => ref.where('email', '==', email)).valueChanges();
+  }
+
+  public async updateUser(user: User): Promise<any> {
+    console.log(user);
+    return await this.db.collection(this.USERS_COLLECTION).doc(user.id).update(user);
   }
 
 }

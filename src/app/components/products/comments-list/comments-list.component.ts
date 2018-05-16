@@ -33,6 +33,6 @@ export class CommentsListComponent implements OnInit, OnChanges {
   _handleCommentAdded(comment: Comment) {
     const productSelected = this.productShareService.productSelected;
     productSelected.comments.unshift(comment);
-    this.productShareService.update(productSelected);
+    this.productShareService.updateProduct(productSelected);
   }
 }

@@ -1,4 +1,5 @@
 <div class="container mt-7 mb-4" *ngIf="logged">
+  <p-growl styleClass="mt-7"></p-growl>
   <div class="card">
     <div class="card-header text-uppercase font-weight-bold">
       {{currentUser?.name}} {{currentUser?.lastName}}
@@ -32,7 +33,7 @@
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="email" class="col-form-label">Correo electrónico: </label>
-                  <input #email id="email" class="form-control" type="email" placeholder="Email" [value]="currentUser?.email" formControlName="email" required>
+                  <input #email id="email" class="form-control" type="email" placeholder="Email" readonly [value]="currentUser?.email" formControlName="email" required>
                   <div class="invalid-feedback" *ngIf="isEmailInvalid()">
                     El email no válido.
                   </div>
@@ -76,21 +77,28 @@
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="credit-card" class="col-form-label">Tarjeta bancaria:</label>
-                  <input id="credit-card" type="text" class="form-control" placeholder="Tarjeta bancaria"
-                         [value]="currentUser?.cardNumber">
+                  <p-inputMask #cardNumber inputId="credit-card" name="credit-card" styleClass="form-control" placeholder="Tarjeta bancaria" [formControlName]="'cardNumber'" mask="9999-9999-9999-9999"></p-inputMask>
+                  <div class="invalid-credit-card" *ngIf="isCardNumberInvalid()">
+                    No es una tarjeta VISA válida.
+                  </div>
                 </div>
               </div>
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="cvv" class="col-form-label">CVV:</label>
-                  <input id="cvv" type="text" class="form-control" placeholder="CVV" [value]="currentUser?.cvv">
+                  <input #cvv id="cvv" type="text" class="form-control" placeholder="CVV" [value]="currentUser?.cvv">
+                  <div class="invalid-feedback" *ngIf="isCvvInvalid()">
+                    El cvv es requerido.
+                  </div>
                 </div>
               </div>
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="expiry-date" class="col-form-label">Fecha de caducidad:</label>
-                  <input id="expiry-date" type="text" class="form-control" placeholder="Fecha de caducidad"
-                         [value]="currentUser?.expiryDate">
+                  <p-inputMask #expiryDate inputId="expiry-date" name="expiry-date" styleClass="form-control" placeholder="Fecha caducidad" [formControlName]="'expiryDate'" mask="99/9999"></p-inputMask>
+                  <div class="invalid-expiry-date" *ngIf="isExpiryDateInvalid()">
+                    La fecha de caducidad es requerida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,7 +107,7 @@
       </form>
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary">Guardar</button>
+      <button class="btn btn-primary" [disabled]="!userForm.valid" (click)="_updateInfo()">Guardar</button>
     </div>
   </div>
 </div>

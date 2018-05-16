@@ -5,13 +5,17 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AccountComponent } from './account/account.component';
 import { InformationComponent } from './information/information.component';
+import {GrowlModule, InputMaskModule} from 'primeng/primeng';
+import {FirestoreService} from '../../services/firestore.service';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputMaskModule,
+    GrowlModule
   ],
   declarations: [
     LoginComponent,
@@ -22,6 +26,9 @@ import { InformationComponent } from './information/information.component';
     LoginComponent,
     AccountComponent,
     InformationComponent
+  ],
+  providers: [
+    FirestoreService
   ]
 })
 export class UserModule {

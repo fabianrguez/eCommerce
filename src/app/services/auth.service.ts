@@ -23,6 +23,7 @@ export class AuthService {
   }
 
   public async logOut() {
+    console.log('estoy en el authService');
     this.currentUserSubject.next( null);
     LocalStorageHelper.removeItem(StorageTypes.USER);
     return await this.auth.auth.signOut();
