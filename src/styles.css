@@ -9,3 +9,8 @@
 button, a {
   touch-action: manipulation;
 }
+
+.ui-rating a {
+  color: #ffd438 !important;
+  font-size: 26px !important;
+}

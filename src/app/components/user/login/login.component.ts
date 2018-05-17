@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
 import {Location} from '@angular/common';
 import {FirestoreService} from '../../../services/firestore.service';
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   _handleLoginSuccess(response: any) {
-    this.firestoreService.findUserByEmail(response.email).subscribe(user => this.authService.storeUserLogged(user[0]));
+    this.firestoreService.findUserByEmail(response.email).subscribe((user: User[]) => this.authService.storeUserLogged(user[0]));
     this.location.back();
     this.username = '';
     this.password = '';

@@ -2,10 +2,13 @@
   <div class="card">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-6 col-xs-12 col-md-6">
           <h4 class="card-title">
             {{product?.name}} | <b class="text-muted">{{product?.model}}</b>
           </h4>
+        </div>
+        <div class="col-lg-2 offset-lg-4 col-xs-12 col-md-4 offset-md-2">
+          <p-rating [ngModel]="product?.rate" style [cancel]="false"></p-rating>
         </div>
       </div>
       <div class="row">

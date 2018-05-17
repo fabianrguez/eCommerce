@@ -12,12 +12,14 @@ import {FormsModule} from '@angular/forms';
 import {ProductCommentComponent} from './product-comment/product-comment.component';
 import {CommentsListComponent} from './comments-list/comments-list.component';
 import { CommentAddComponent } from './comment-add/comment-add.component';
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    RatingModule
   ],
   exports: [
     ProductContainerComponent,

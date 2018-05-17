@@ -9,4 +9,5 @@ export interface Product {
   image?: string;
   description?: string;
   comments?: Comment[];
+  rate?: number;
 }
