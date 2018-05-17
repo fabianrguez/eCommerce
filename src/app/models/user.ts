@@ -1,3 +1,6 @@
+import {Billing} from './billing';
+import {ShippingAddress} from './shipping-address';
+
 export interface User {
   id?: string;
   name?: string;
@@ -5,9 +8,9 @@ export interface User {
   address?: string;
   email?: string;
   image?: string;
+  mobilePhone?: string;
   location?: string;
-  cardNumber?: string;
-  cvv?: string;
-  expiryDate?: string;
   postalCode?: string;
+  billing?: Billing;
+  shippingAddress: ShippingAddress;
 }

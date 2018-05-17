@@ -39,33 +39,60 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-              <div class="col-lg-6 col-xs-12">
+              <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
-                  <label for="address" class="col-form-label">Dirección: </label>
-                  <input #address id="address" class="form-control" placeholder="Dirección" [value]="currentUser?.address" formControlName="address" required>
-                  <div class="invalid-feedback" *ngIf="isAddressInvalid()">
-                    La dirección es requerida.
+                  <label for="mobile-phone" class="col-form-label">Teléfono móvil: </label>
+                  <input #mobilePhone id="mobile-phone" class="form-control" type="text" placeholder="Teléfono móvil" [value]="currentUser?.mobilePhone" formControlName="mobilePhone" required>
+                  <div class="invalid-feedback" *ngIf="isMobilePhoneInvalid()">
+                    El teléfono móvil no es válido.
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-xs-12">
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
-                  <label for="location" class="col-form-label">Localidad: </label>
-                  <input #location id="location" class="form-control" placeholder="Localidad" [value]="currentUser?.location" formControlName="location" required>
+                  <label for="country" class="col-form-label">País: </label>
+                  <input #country id="country" class="form-control" placeholder="País" [value]="currentUser?.shippingAddress.country" formControlName="country" required>
+                  <div class="invalid-feedback" *ngIf="isCountryInvalid()">
+                    El país es requerido.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="location" class="col-form-label">Provincia: </label>
+                  <input #location id="location" class="form-control" placeholder="Provincia" [value]="currentUser?.shippingAddress.location" formControlName="location" required>
                   <div class="invalid-feedback" *ngIf="isLocationInvalid()">
                     La localidad es requerida.
                   </div>
                 </div>
               </div>
+              <div class="col-lg-4 col-xs-12">
+                <div class="form-group">
+                  <label for="location" class="col-form-label">Municipio: </label>
+                  <input #city id="city" class="form-control" placeholder="Municipio" [value]="currentUser?.shippingAddress.city" formControlName="city" required>
+                  <div class="invalid-feedback" *ngIf="isCityInvalid()">
+                    El municipio es requerido.
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="row">
+              <div class="col-lg-6 col-xs-12">
+                <div class="form-group">
+                  <label for="address" class="col-form-label">Dirección: </label>
+                  <input #address id="address" class="form-control" placeholder="Dirección" [value]="currentUser?.shippingAddress.street" formControlName="address" required>
+                  <div class="invalid-feedback" *ngIf="isAddressInvalid()">
+                    La dirección es requerida.
+                  </div>
+                </div>
+              </div>
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="cp" class="col-form-label">Código postal: </label>
-                  <input #postalCode id="cp" class="form-control" placeholder="Código postal" [value]="currentUser?.postalCode" formControlName="postalCode" required>
+                  <input #postalCode id="cp" class="form-control" placeholder="Código postal" [value]="currentUser?.shippingAddress.postalCode" formControlName="postalCode" required>
                   <div class="invalid-feedback" *ngIf="isPostalCodeInvalid()">
                     El código postal es requerido.
                   </div>
@@ -86,7 +113,7 @@
               <div class="col-lg-4 col-xs-12">
                 <div class="form-group">
                   <label for="cvv" class="col-form-label">CVV:</label>
-                  <input #cvv id="cvv" type="text" class="form-control" placeholder="CVV" [value]="currentUser?.cvv">
+                  <input #cvv id="cvv" type="text" class="form-control" placeholder="CVV" [value]="currentUser?.billing.cvv">
                   <div class="invalid-feedback" *ngIf="isCvvInvalid()">
                     El cvv es requerido.
                   </div>

@@ -23,6 +23,9 @@ export class InformationComponent implements OnInit, OnDestroy {
   @ViewChild('cardNumber') cardNumber;
   @ViewChild('cvv') cvv: ElementRef;
   @ViewChild('expiryDate') expiryDate;
+  @ViewChild('mobilePhone') mobilePhone: ElementRef;
+  @ViewChild('country') country: ElementRef;
+  @ViewChild('city') city: ElementRef;
 
   currentUser: User;
   logged: boolean;
@@ -51,17 +54,21 @@ export class InformationComponent implements OnInit, OnDestroy {
     this.userForm = this.formsBuilder.group({
       'name': new FormControl(this.currentUser.name, Validators.required),
       'lastName': new FormControl(this.currentUser.lastName, Validators.required),
+      'mobilePhone': new FormControl(this.currentUser.mobilePhone, Validators.compose(
+        [Validators.pattern(Constants.phonePattern), Validators.required])),
       'email': new FormControl(this.currentUser.email, Validators.compose([Validators.email, Validators.required])),
-      'address': new FormControl(this.currentUser.address, Validators.required),
-      'location': new FormControl(this.currentUser.location, Validators.required),
-      'postalCode': new FormControl(this.currentUser.postalCode, Validators.required),
-      'cardNumber': new FormControl(this.currentUser.cardNumber, Validators.compose(
+      'address': new FormControl(this.currentUser.shippingAddress.street, Validators.required),
+      'location': new FormControl(this.currentUser.shippingAddress.location, Validators.required),
+      'postalCode': new FormControl(this.currentUser.shippingAddress.postalCode, Validators.required),
+      'cardNumber': new FormControl(this.currentUser.billing.cardNumber, Validators.compose(
         [Validators.pattern(Constants.visaPattern), Validators.required])),
-      'cvv': new FormControl(this.currentUser.cvv, Validators.required),
-      'expiryDate': new FormControl(this.currentUser.expiryDate, Validators.required)
+      'cvv': new FormControl(this.currentUser.billing.cvv, Validators.required),
+      'expiryDate': new FormControl(this.currentUser.billing.expiryDate, Validators.required),
+      'country': new FormControl(this.currentUser.shippingAddress.country, Validators.required),
+      'city': new FormControl(this.currentUser.shippingAddress.city, Validators.required)
     });
-    this.userForm.controls['cardNumber'].setValue(this.currentUser.cardNumber);
-    this.userForm.controls['expiryDate'].setValue(this.currentUser.expiryDate);
+    this.userForm.controls['cardNumber'].setValue(this.currentUser.billing.cardNumber);
+    this.userForm.controls['expiryDate'].setValue(this.currentUser.billing.expiryDate);
     this.userForm.controls['email'].disable();
   }
 
@@ -77,6 +84,10 @@ export class InformationComponent implements OnInit, OnDestroy {
     return this.checkFieldInvalid('email', this.email);
   }
 
+  isMobilePhoneInvalid() {
+    return this.checkFieldInvalid('mobilePhone', this.mobilePhone);
+  }
+
   isAddressInvalid() {
     return this.checkFieldInvalid('address', this.address);
   }
@@ -87,6 +98,15 @@ export class InformationComponent implements OnInit, OnDestroy {
 
   isPostalCodeInvalid() {
     return this.checkFieldInvalid('postalCode', this.postalCode);
+  }
+
+
+  isCountryInvalid() {
+    return this.checkFieldInvalid('country', this.country);
+  }
+
+  isCityInvalid() {
+    return this.checkFieldInvalid('city', this.city);
   }
 
   isCardNumberInvalid() {

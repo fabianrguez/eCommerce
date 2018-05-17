@@ -30,5 +30,6 @@ export class AccountComponent implements OnInit {
     this.currentUser = this.authService.getUserLogged();
     this.options.push({label: 'Mis Pedidos', redirectTo: '/pedidos'});
     this.options.push({label: 'Mi Información', redirectTo: `/usuario/${this.currentUser.id}/informacion`});
+    this.options.push({label: 'Lista de deseos', redirectTo: `/usuario/${this.currentUser.id}/deseos`});
   }
 }
