@@ -11,7 +11,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>({});
+  private currentUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>({billing: {}, shippingAddress: {}});
   public currentUser: Observable<User> = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
   constructor(private auth: AngularFireAuth) {
@@ -23,7 +23,6 @@ export class AuthService {
   }
 
   public async logOut() {
-    console.log('estoy en el authService');
     this.currentUserSubject.next( null);
     LocalStorageHelper.removeItem(StorageTypes.USER);
     return await this.auth.auth.signOut();
