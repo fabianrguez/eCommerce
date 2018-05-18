@@ -65,7 +65,7 @@
                   <label for="location" class="col-form-label">Provincia: </label>
                   <input #location id="location" class="form-control" placeholder="Provincia" [value]="currentUser?.shippingAddress.location" formControlName="location" required>
                   <div class="invalid-feedback" *ngIf="isLocationInvalid()">
-                    La localidad es requerida.
+                    La provincia es requerida.
                   </div>
                 </div>
               </div>

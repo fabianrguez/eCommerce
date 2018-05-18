@@ -4,6 +4,7 @@ import {ProductContainerComponent} from './components/products/product-container
 import {ProductDetailsComponent} from './components/products/product-details/product-details.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {InformationComponent} from './components/user/information/information.component';
+import {OrdersComponent} from './components/user/orders/orders.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     path: 'usuario/:id',
     children: [
       {path: 'informacion', component: InformationComponent},
+      {path: 'pedidos', component: OrdersComponent},
       {path: '', redirectTo: 'informacion', pathMatch: 'full'}
     ]
   },

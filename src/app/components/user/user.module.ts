@@ -7,6 +7,7 @@ import { AccountComponent } from './account/account.component';
 import { InformationComponent } from './information/information.component';
 import {GrowlModule, InputMaskModule} from 'primeng/primeng';
 import {FirestoreService} from '../../services/firestore.service';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   imports: [
@@ -20,12 +21,14 @@ import {FirestoreService} from '../../services/firestore.service';
   declarations: [
     LoginComponent,
     AccountComponent,
-    InformationComponent
+    InformationComponent,
+    OrdersComponent
   ],
   exports: [
     LoginComponent,
     AccountComponent,
-    InformationComponent
+    InformationComponent,
+    OrdersComponent
   ],
   providers: [
     FirestoreService

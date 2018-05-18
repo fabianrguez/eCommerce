@@ -1,7 +1,7 @@
 <div class="row align-items-start">
   <div class="col-md-2">
     <label for="price-range">{{minPrice}} € - {{maxPrice}} €</label>
-    <input id="price-range" type="range" class="custom-range" min="0" value="0" (change)="_handlePriceRange($event)"/>
+    <input id="price-range" type="range" class="custom-range" min="0" value="20" (change)="_handlePriceRange($event)"/>
   </div>
   <div class="col-md-10">
     <app-order-by-filter></app-order-by-filter>
